@@ -1,0 +1,25 @@
+plugins {
+    id 'java'
+}
+
+apply plugin: 'java'
+
+group 'net.swedz'
+version '1.0-SNAPSHOT'
+
+configurations {
+    shade
+    compile.extendsFrom shade
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    shade group: 'mysql', name: 'mysql-connector-java', version: '8.0.20'
+}
+
+jar {
+    configurations.shade.each { dep -> from(project.zipTree(dep)) { exclude 'META-INF', 'META-INF/**' } }
+}
