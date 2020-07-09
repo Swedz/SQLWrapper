@@ -28,7 +28,7 @@ sql.disconnect();
 
 ## Download
 
-Latest version: 1.0-SNAPSHOT
+Latest version: 1.1-SNAPSHOT
 
 Be sure to replace the **VERSION** key below with one of the versions available.
 

@@ -66,7 +66,7 @@ public class QueryBuilder {
 	public void query(SQLConsumer<ResultSetWrapper> consumer) {
 		sql.query(this, (r) -> {
 			if(consumer != null)
-				consumer.accept(new ResultSetWrapper(r));
+				consumer.accept(new ResultSetWrapper(statement, r));
 		});
 	}
 	
@@ -75,6 +75,6 @@ public class QueryBuilder {
 			sql.query(this, null);
 			return null;
 		}
-		return new ResultSetWrapper(sql.query(this));
+		return new ResultSetWrapper(statement, sql.query(this));
 	}
 }
